@@ -11,6 +11,9 @@ module AseoDb
       return if ActiveRecord::Base.connection.tables.include?(table_name)
       ActiveRecord::Schema.define do 
         create_table table_name,options: "DEFAULT CHARSET=utf8" do |table|
+          table.column :name,:string
+          table.column :video_list_desc,:string
+          table.column :href,:string
         end
       end
     end
