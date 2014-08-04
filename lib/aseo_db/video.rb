@@ -17,6 +17,7 @@ module AseoDb
           table.column :src, :string
           table.column :pv_sum, :int
           table.column :like_sum, :int
+          table.datetime :updated_at
         end
         add_index table_name, [:name], name: 'name', unique: true,using: :btree
         add_index table_name, [:video_list_id], name: 'video_list_id', using: :btree
