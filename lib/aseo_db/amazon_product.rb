@@ -9,16 +9,19 @@ module AseoDb
       return if ActiveRecord::Base.connection.tables.include?(table_name)
       ActiveRecord::Schema.define do
         create_table table_name,options: "DEFAULT CHARSET utf8" do |table|
-          table.column :name, :string, null: false
-          table.column :video_list_id, :int
-          table.column :href, :string
-          table.column :img_href, :string
-          table.column :src, :string
-          table.column :pv_sum, :int
-          table.column :like_sum, :int
+          table.column :asin,:string
+          table.column :title,:string
+          table.column :price,:decimal,precision: 10,scale: 2
+          table.column :url,:string
+          table.column :img_1,:string
+          table.column :img_2,:string
+          table.column :img_3,:string
+          table.column :brand,:string
+          table.column :features,:string
+          table.column :descriptions,:string
+          table.column :category_id,:string
+          table.column :category_name,:string
         end
-        add_index table_name, [:name], name: 'name', unique: true,using: :btree
-        add_index table_name, [:video_list_id], name: 'video_list_id', using: :btree
       end
     end
   end
